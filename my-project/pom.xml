@@ -5,13 +5,14 @@
 
   <modelVersion>4.0.0</modelVersion>
 
+  <!-- Төслийн үндсэн мэдээлэл -->
   <groupId>labxx.sict.must.edu.mn</groupId>
   <artifactId>my-project</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>jar</packaging>
-
   <name>My Java Project</name>
 
+  <!-- Тохиргооны глобал хувьсагчууд -->
   <properties>
     <maven.compiler.source>17</maven.compiler.source>
     <maven.compiler.target>17</maven.compiler.target>
@@ -19,8 +20,8 @@
     <junit.jupiter.version>5.10.0</junit.jupiter.version>
   </properties>
 
+  <!-- Хамаарал (жишээ нь: JUnit) -->
   <dependencies>
-    <!-- JUnit 5 -->
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter</artifactId>
@@ -29,21 +30,11 @@
     </dependency>
   </dependencies>
 
+  <!-- Build болон Plugins -->
   <build>
-    <!-- Анхааруулга арилгах pluginManagement хэсэг -->
-    <pluginManagement>
-      <plugins>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-checkstyle-plugin</artifactId>
-          <version>3.3.1</version>
-        </plugin>
-      </plugins>
-    </pluginManagement>
-
     <plugins>
 
-      <!-- Surefire Plugin: JUnit тест ажиллуулах -->
+      <!-- ✅ JUnit тест ажиллуулах Surefire plugin -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
@@ -55,7 +46,7 @@
         </configuration>
       </plugin>
 
-      <!-- Checkstyle Plugin: Кодын загвар шалгах -->
+      <!-- ✅ Кодын загвар шалгах Checkstyle plugin -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-checkstyle-plugin</artifactId>
@@ -70,6 +61,7 @@
           </execution>
         </executions>
         <configuration>
+          <!-- checkstyle.xml файлын байршил -->
           <configLocation>checkstyle.xml</configLocation>
           <encoding>${project.build.sourceEncoding}</encoding>
           <consoleOutput>true</consoleOutput>
@@ -77,7 +69,7 @@
         </configuration>
       </plugin>
 
-      <!-- JaCoCo Plugin: Кодын хамрах хүрээ -->
+      <!-- ✅ Кодын хамрах хүрээг шалгах JaCoCo plugin -->
       <plugin>
         <groupId>org.jacoco</groupId>
         <artifactId>jacoco-maven-plugin</artifactId>
@@ -90,7 +82,7 @@
           </execution>
           <execution>
             <id>report</id>
-            <phase>verify</phase>
+            <phase>verify</phase> <!-- mvn verify үед тайлан үүсгэнэ -->
             <goals>
               <goal>report</goal>
             </goals>
@@ -100,5 +92,4 @@
 
     </plugins>
   </build>
-
 </project>

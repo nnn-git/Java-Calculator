@@ -21,11 +21,7 @@
     <module name="IllegalImport"/>
     <module name="RedundantImport"/>
     <module name="UnusedImports"/>
-    <module name="FileTabCharacter"/>
     <module name="Indentation"/>
-    <module name="LineLength">
-      <property name="max" value="120"/>
-    </module>
     <module name="WhitespaceAfter"/>
     <module name="WhitespaceAround"/>
     <module name="NoWhitespaceAfter"/>
@@ -37,5 +33,13 @@
     <module name="TodoComment"/>
     <module name="TrailingComment"/>
     <module name="UpperEll"/>
+  </module>
+
+  <!-- `FileTabCharacter`-ийг `TreeWalker`-ийн гадна байрлуулсан -->
+  <module name="FileTabCharacter"/>
+
+  <!-- `LineLength`-ийг Checker модулийн гадна байрлуулсан -->
+  <module name="LineLength">
+    <property name="max" value="120"/>
   </module>
 </module>
