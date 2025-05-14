@@ -5,3 +5,7 @@ public class Multiplication {
         return a * b;
     }
 }
+/**
+ * This method multiplies two values.
+ * This is from the develop branch.
+ */
