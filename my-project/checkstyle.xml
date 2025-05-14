@@ -2,18 +2,49 @@
 <!DOCTYPE module PUBLIC "-//Checkstyle//DTD Configuration 1.3//EN" 
     "https://checkstyle.sourceforge.io/dtds/configuration_1_3.dtd"> 
 
-<module name="Checker"> 
-    <property name="severity" value="error"/> 
+<module name="Checker">
+  <property name="severity" value="error"/> <!-- энэ мөрийг хадгалж байна -->
 
-    <!-- LineLength-г Checker дотор шууд байрлуулна -->
-    <module name="LineLength"> 
-        <property name="max" value="120"/> 
-    </module> 
+  <module name="TreeWalker">
+    <module name="JavadocMethod"/>
+    <module name="JavadocType"/>
+    <module name="JavadocVariable"/>
+    <module name="JavadocStyle"/>
+    <module name="ConstantName"/>
+    <module name="LocalFinalVariableName"/>
+    <module name="LocalVariableName"/>
+    <module name="MemberName"/>
+    <module name="MethodName"/>
+    <module name="PackageName"/>
+    <module name="ParameterName"/>
+    <module name="StaticVariableName"/>
+    <module name="TypeName"/>
+    <module name="AvoidStarImport"/>
+    <module name="IllegalImport"/>
+    <module name="RedundantImport"/>
+    <module name="UnusedImports"/>
+    <module name="Indentation"/>
+    <module name="MethodLength"> 
+      <property name="max" value="100"/> 
+    </module>
+    <module name="WhitespaceAfter"/>
+    <module name="WhitespaceAround"/>
+    <module name="NoWhitespaceAfter"/>
+    <module name="NoWhitespaceBefore"/>
+    <module name="NeedBraces"/>
+    <module name="EmptyBlock"/>
+    <module name="EqualsAvoidNull"/>
+    <module name="IllegalThrows"/>
+    <module name="TodoComment"/>
+    <module name="TrailingComment"/>
+    <module name="UpperEll"/>
+  </module>
 
-    <module name="TreeWalker"> 
-        <module name="Indentation"/> 
-        <module name="MethodLength"> 
-            <property name="max" value="100"/> 
-        </module> 
-    </module> 
+  <!-- `FileTabCharacter`-ийг гадна талд -->
+  <module name="FileTabCharacter"/>
+
+  <!-- `LineLength`-г гадна талд -->
+  <module name="LineLength">
+    <property name="max" value="120"/>
+  </module>
 </module>
