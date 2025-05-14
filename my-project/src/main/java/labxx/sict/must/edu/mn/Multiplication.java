@@ -5,3 +5,7 @@ public class Multiplication {
         return a * b;
     }
 }
+/**
+ * Multiply two integers and return the result.
+ * This version is from feature branch.
+ */
