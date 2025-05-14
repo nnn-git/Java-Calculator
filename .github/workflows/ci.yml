@@ -1,0 +1,40 @@
+name: CI Процесс
+
+# Workflow нь develop болон release/* салбаруудад push болон pull request хийсэн үед ажиллана
+on:
+  push:
+    branches:
+      - develop
+      - release/*
+  pull_request:
+    branches:
+      - develop
+      - release/*
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest   # Ubuntu дээр ажиллана
+
+    steps:
+    # 1. Кодыг checkout хийх
+    - name: Кодыг Checkout хийх
+      uses: actions/checkout@v4
+      
+    # 2. JDK 17 тохируулах
+    - name: JDK 17 Тохируулах
+      uses: actions/setup-java@v4
+      with:
+        java-version: '17'  # JDK 17 ашиглах
+        distribution: 'temurin'  # Temurin ашиглах (OpenJDK-ийн дистрибуц)
+    
+    # 3. Checkstyle загварын шалгалт
+    - name: Checkstyle Шалгах
+      run: mvn checkstyle:check  # Maven-ийн checkstyle плагиныг ашиглан кодын загварыг шалгана
+
+    # 4. JUnit тестүүдийг гүйцэтгэж, JaCoCo-ийн 100% branch coverage шалгах
+    - name: JUnit Тест ба JaCoCo Coverage Шалгах
+      run: mvn test jacoco:check  # Тестүүдийг гүйцэтгэж, JaCoCo-ийн branch coverage шалгах
+
+    # 5. JaCoCo тайланг үүсгэх
+    - name: JaCoCo Тайлан Үүсгэх
+      run: mvn jacoco:report  # JaCoCo-ийн тестийн тайланг үүсгэнэ
