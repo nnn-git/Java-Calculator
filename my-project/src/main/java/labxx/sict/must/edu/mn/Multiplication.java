@@ -6,6 +6,9 @@ public class Multiplication {
     }
 }
 /**
+
  * Multiply two integers and return the result.
- * This version is from feature branch.
+ * This method multiplies two values.
+ * This is from the develop branch.
+
  */
